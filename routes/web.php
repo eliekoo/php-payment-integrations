@@ -33,4 +33,17 @@ Route::group(['prefix' => 'stripe'], function(){
     Route::get('/success',[StripeCheckoutController::class, 'success']);
     Route::get('/canceled',[StripeCheckoutController::class, 'fail']);
     Route::post('/stripe/webhook',[StripeCheckoutController::class, 'webhook']);
-    });
+});
+
+use App\Http\Controllers\PaypalCheckoutController;
+Route::group(['prefix' => 'paypal'], function(){
+    Route::get('/',[PaypalCheckoutController::class, 'index']);
+    Route::post('/checkout',[PaypalCheckoutController::class, 'checkout']);
+    Route::post('/paypal/webhook',[PaypalCheckoutController::class, 'webhook']);
+});
+
+
+use App\Http\Controllers\CheckoutController;
+// Add routes for success and failure pages (unified)
+Route::get('/payment/success', [CheckoutController::class, 'success'])->name('payment.success');
+Route::get('/payment/failure', [CheckoutController::class, 'failure'])->name('payment.failure');
