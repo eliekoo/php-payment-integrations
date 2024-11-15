@@ -16,6 +16,7 @@
           <div>
             <h1>Single photo</h1>
             <h4>Purchase a Pasha original photo</h4>
+            <h4>MYR 99.90 each</h4>
             <div class="pasha-image">
               <img
                 src="https://picsum.photos/280/320?random=4"
@@ -33,9 +34,8 @@
               <input type="number" id="quantity-input" name="quantity" min="1" value="1" />
               <button class="increment-btn" id="add" type="button">+</button>
             </div>
-
-            <p>Number of copies (max 10)</p>
-
+            <p>Number of copies</p>
+            
             <button id="submit" type="submit">Pay</button>
           </form>
         </section>
